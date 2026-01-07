@@ -97,24 +97,30 @@
       color: #8aa0b8;
     }
 
-    @media (max-width: 700px) {
-     .album {
-     flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
+   @media (max-width: 700px) {
+  .album {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 
-      .album img {
-       width: 240px;
-       aspect-ratio: 1 / 1;
-       object-fit: cover;
-    }
+  .album img {
+    width: 240px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+  }
 
-    /*li {
-       flex-direction: column;
-       align-items: flex-start;
-      }*/
-    }
+      /* IMPORTANTE: neutraliza o center só nas tracks */
+  .album-info {
+    width: 100%;
+  }
+
+  .track-top {
+    text-align: left;
+    width: 100%;
+  }
+}
 
 /* ===== VOTAÇÃO ===== */
   
@@ -123,19 +129,14 @@
     display: none;
 }
 
-.track {
+/*.track {
   padding: 10px 0;
   border-bottom: 1px dotted #2a3b52;
 }
 
-/*.track-top {
-  display: grid;
-  grid-template-columns: 1fr auto auto;
-  align-items: center;
-  gap: 10px;
-}*/
-
 .track-top {
+     text-align: left;      /* desfaz o center herdado 
+    width: 100%;
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
@@ -152,21 +153,6 @@
   font-weight: 500;
 }
 
-/*.vote-btn {
- /* width: 90px;              /* largura fixa = alinhamento perfeito */
-/*  text-align: center;
-  /*margin-left: auto;  /* empurra o botão para a direita */
-  /*padding: 6px 14px;  /* botão maior */
- /* padding: 3px 10px;
-  font-size: 0.85em;
-  border-radius: 5px;
-  /*background: linear-gradient(135deg, #2b4f7a, #0b1623);*/
- /* background: linear-gradient(135deg, #b30000, #ff3333);
-  color: #fff;
-  border: none;
-  cursor: pointer;
-}*/
-
 .vote-btn {
   width: 90px;
   justify-self: end;
@@ -181,9 +167,41 @@
        
 .vote-btn:hover {
   background: #3b6fa5;
-  /*filter: brightness(1.15);*/
+  /*filter: brightness(1.15);
+}*/
+
+    
+.track {
+  padding: 10px 0;
+  border-bottom: 1px dotted #2a3b52;
 }
 
+.track-top {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  width: 100%;
+}
+
+.track-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.vote-btn {
+  width: 70px;
+  padding: 3px 6px;
+  font-size: 0.8em;
+  border-radius: 5px;
+  background: linear-gradient(135deg, #b30000, #ff3333);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  justify-self: end;
+}
+    
+    
 .track-links {
   margin-top: 4px;
   display: flex;
