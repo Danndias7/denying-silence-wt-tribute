@@ -129,10 +129,10 @@
 }
 
 .track-top {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
   align-items: center;
   gap: 10px;
-  flex-wrap: nowrap;
 }
 
 .track-name {
@@ -150,11 +150,15 @@
 }*/
 
 .vote-btn {
-  margin-left: auto;  /* empurra o botão para a direita */
-  padding: 6px 14px;  /* botão maior */
+  width: 90px;              /* largura fixa = alinhamento perfeito */
+  text-align: center;
+  /*margin-left: auto;  /* empurra o botão para a direita */ */
+  /*padding: 6px 14px;  /* botão maior */ */
+  padding: 6px 0;
   font-size: 0.85em;
   border-radius: 6px;
   background: linear-gradient(135deg, #2b4f7a, #0b1623);
+  /*background: linear-gradient(135deg, #b30000, #ff3333);*/
   color: #fff;
   border: none;
   cursor: pointer;
@@ -162,8 +166,9 @@
     
 .vote-btn:hover {
   background: #3b6fa5;
+  /*filter: brightness(1.15);*/
 }
-
+    
 /*.vote-btn:hover {
   filter: brightness(1.15);
 }*/
