@@ -118,7 +118,7 @@
     }
 
 /* ===== VOTAÇÃO ===== */
-    .vote-btn {
+  /*  .vote-btn {
   background: linear-gradient(135deg, #1f3b5a, #0b1623);
   color: #eaeaea;
   border: 1px solid #2a4a6a;
@@ -136,13 +136,66 @@
   margin-left: 6px;
   color: #6ddf9c;
   font-size: 0.8em;
-}
+}*/
 
 /*ESCONDE O CONTADOR */
   .votes {
     display: none;
 }
 
+.track {
+  padding: 10px 0;
+  border-bottom: 1px dotted #2a3b52;
+}
+
+.track-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.track-name {
+  font-weight: 500;
+}
+
+.vote-btn {
+  background: linear-gradient(135deg, #2b4f7a, #0b1623);
+  color: #eaeaea;
+  border: 1px solid #355f8a;
+  border-radius: 5px;
+  padding: 3px 10px;
+  cursor: pointer;
+  font-size: 0.7em;
+}
+
+
+
+    
+.vote-btn:hover {
+  background: #3b6fa5;
+}
+
+.track-links {
+  margin-top: 6px;
+  font-size: 0.8em;
+}
+
+.track-links a {
+  margin-right: 10px;
+  text-decoration: none;
+  opacity: 0.85;
+}
+
+.track-links a:hover {
+  opacity: 1;
+}
+
+/* cores oficiais */
+.spotify { color: #1DB954; }
+.deezer { color: #EF5466; }
+.youtube { color: #FF3B3B; }
+    
   </style>
 </head>
 
@@ -214,9 +267,21 @@
           <button class="vote-btn" data-song="Jillian">Votar</button>
           <span class="votes" id="votes-Jillian">0</span></li>
         
-        <li>Stand My Ground <span class="played">✔ já tocamos</span>
-          <button class="vote-btn" data-song="Stand My Ground">Votar</button>
-          <span class="votes" id="votes-Stand My Ground">0</span></li>
+<li class="track">
+  <div class="track-top">
+    <span class="track-name">Stand My Ground</span>
+    <span class="played">✔ já tocamos</span>
+    <button class="vote-btn" onclick="vote('Stand My Ground')">
+      Votar
+    </button>
+  </div>
+  
+  <div class="track-links">
+    <a href="https://open.spotify.com/search/Stand%20My%20Ground" target="_blank" class="spotify">Spotify</a>
+    <a href="https://www.deezer.com/search/Stand%20My%20Ground" target="_blank" class="deezer">Deezer</a>
+    <a href="https://youtu.be/NpWDT3jkQKY?si=xoeMKTIGx5qxN5AB" target="_blank" class="youtube">YouTube</a>
+  </div>
+</li>
         
         <li>Pale
           <button class="vote-btn" data-song="Pale">Votar</button>
