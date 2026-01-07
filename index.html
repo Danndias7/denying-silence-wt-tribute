@@ -76,8 +76,9 @@
     }
 
     .played {
+      font-size: 0.7em;   /* menor */
       color: #6ddf9c;
-      font-size: 0.85em;
+      white-space: nowrap;
     }
 
     .links a {
@@ -118,26 +119,7 @@
     }
 
 /* ===== VOTAÇÃO ===== */
-  /*  .vote-btn {
-  background: linear-gradient(135deg, #1f3b5a, #0b1623);
-  color: #eaeaea;
-  border: 1px solid #2a4a6a;
-  border-radius: 6px;
-  padding: 4px 10px;
-  cursor: pointer;
-  font-size: 0.8em;
-}
-
-.vote-btn:hover {
-  background: #2c5f8a;
-}
-
-.votes {
-  margin-left: 6px;
-  color: #6ddf9c;
-  font-size: 0.8em;
-}*/
-
+  
 /*ESCONDE O CONTADOR */
   .votes {
     display: none;
@@ -152,14 +134,14 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 .track-name {
   font-weight: 500;
 }
 
-.vote-btn {
+/*.vote-btn {
   background: linear-gradient(135deg, #2b4f7a, #0b1623);
   color: #eaeaea;
   border: 1px solid #355f8a;
@@ -167,18 +149,37 @@
   padding: 3px 10px;
   cursor: pointer;
   font-size: 0.7em;
+}*/
+
+.vote-btn {
+  margin-left: auto;  /* empurra o botão para a direita */
+  padding: 6px 14px;  /* botão maior */
+  font-size: 0.9em;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #b30000, #ff3333);
+  color: #fff;
+  border: none;
+  cursor: pointer;
 }
-
-
-
     
-.vote-btn:hover {
+/*.vote-btn:hover {
   background: #3b6fa5;
+}*/
+
+.vote-btn:hover {
+  filter: brightness(1.15);
 }
 
-.track-links {
+/*.track-links {
   margin-top: 6px;
   font-size: 0.8em;
+}*/
+
+.track-links {
+  margin-top: 4px;
+  display: flex;
+  gap: 12px;
+  font-size: 0.85em;
 }
 
 .track-links a {
@@ -216,16 +217,110 @@
     </div>
     <div class="album-info">
       <h2>Enter (1997)</h2>
-      <ul>
-        <li>Restless <span class="played">✔ já tocamos</span></li>
-        <li>Enter</li>
-        <li>Pearls of Light</li>
-        <li>Deep Within</li>
-        <li>Gatekeeper</li>
-        <li>Grace</li>
-        <li>Blooded</li>
-        <li>Candles</li>
-      </ul>
+<ul>
+<li class="track">
+  <div class="track-top">
+    <span class="track-name">Restless</span>
+    <span class="played">✔ já tocamos</span>
+    <button class="vote-btn" onclick="vote('Restless')">Votar</button>
+  </div>
+  <div class="track-links">
+    <a href="https://open.spotify.com/search/Restless%20Within%20Temptation" target="_blank" class="spotify">Spotify</a>
+    <a href="https://www.deezer.com/search/Restless%20Within%20Temptation" target="_blank" class="deezer">Deezer</a>
+    <a href="https://www.youtube.com/results?search_query=Restless+Within+Temptation" target="_blank" class="youtube">YouTube</a>
+  </div>
+</li>
+
+<li class="track">
+  <div class="track-top">
+    <span class="track-name">Enter</span>
+    <button class="vote-btn" onclick="vote('Enter')">Votar</button>
+  </div>
+  <div class="track-links">
+    <a href="https://open.spotify.com/search/Enter%20Within%20Temptation" target="_blank" class="spotify">Spotify</a>
+    <a href="https://www.deezer.com/search/Enter%20Within%20Temptation" target="_blank" class="deezer">Deezer</a>
+    <a href="https://www.youtube.com/results?search_query=Enter+Within+Temptation" target="_blank" class="youtube">YouTube</a>
+  </div>
+</li>
+
+  <ul>
+<li class="track">
+  <div class="track-top">
+    <span class="track-name">Pearls of Light</span>
+    <span class="played">✔ já tocamos</span>
+    <button class="vote-btn" onclick="vote('Pearls of Light')">Votar</button>
+  </div>
+  <div class="track-links">
+    <a href="https://open.spotify.com/search/Pearls%20of%20Light%20Within%20Temptation" target="_blank" class="spotify">Spotify</a>
+    <a href="https://www.deezer.com/search/Pearls%20of%20Light%20Within%20Temptation" target="_blank" class="deezer">Deezer</a>
+    <a href="https://www.youtube.com/results?search_query=Pearls%20of%20Light+Within+Temptation" target="_blank" class="youtube">YouTube</a>
+  </div>
+</li>
+
+<li class="track">
+  <div class="track-top">
+    <span class="track-name">Deep Within</span>
+    <button class="vote-btn" onclick="vote('Deep Within')">Votar</button>
+  </div>
+  <div class="track-links">
+    <a href="https://open.spotify.com/search/Deep%20Within%20Within%20Temptation" target="_blank" class="spotify">Spotify</a>
+    <a href="https://www.deezer.com/search/Deep%20Within%20Within%20Temptation" target="_blank" class="deezer">Deezer</a>
+    <a href="https://www.youtube.com/results?search_query=Deep%Within+Within+Temptation" target="_blank" class="youtube">YouTube</a>
+  </div>
+</li>
+
+    <ul>
+<li class="track">
+  <div class="track-top">
+    <span class="track-name">Gatekeeper</span>
+    <span class="played">✔ já tocamos</span>
+    <button class="vote-btn" onclick="vote('Gatekeeper')">Votar</button>
+  </div>
+  <div class="track-links">
+    <a href="https://open.spotify.com/search/Gatekeeper%20Within%20Temptation" target="_blank" class="spotify">Spotify</a>
+    <a href="https://www.deezer.com/search/Gatekeeper%20Within%20Temptation" target="_blank" class="deezer">Deezer</a>
+    <a href="https://www.youtube.com/results?search_query=Gatekeeper+Within+Temptation" target="_blank" class="youtube">YouTube</a>
+  </div>
+</li>
+
+<li class="track">
+  <div class="track-top">
+    <span class="track-name">Grace</span>
+    <button class="vote-btn" onclick="vote('Grace')">Votar</button>
+  </div>
+  <div class="track-links">
+    <a href="https://open.spotify.com/search/Grace%20Within%20Temptation" target="_blank" class="spotify">Spotify</a>
+    <a href="https://www.deezer.com/search/Grace%20Within%20Temptation" target="_blank" class="deezer">Deezer</a>
+    <a href="https://www.youtube.com/results?search_query=Grace+Within+Temptation" target="_blank" class="youtube">YouTube</a>
+  </div>
+</li>
+
+<li class="track">
+  <div class="track-top">
+    <span class="track-name">Blooded</span>
+    <button class="vote-btn" onclick="vote('Blooded')">Votar</button>
+  </div>
+  <div class="track-links">
+    <a href="https://open.spotify.com/search/Blooded%20Within%20Temptation" target="_blank" class="spotify">Spotify</a>
+    <a href="https://www.deezer.com/search/Blooded%20Within%20Temptation" target="_blank" class="deezer">Deezer</a>
+    <a href="https://www.youtube.com/results?search_query=Blooded+Within+Temptation" target="_blank" class="youtube">YouTube</a>
+  </div>
+</li>
+
+<li class="track">
+  <div class="track-top">
+    <span class="track-name">Candles</span>
+    <button class="vote-btn" onclick="vote('Candles')">Votar</button>
+  </div>
+  <div class="track-links">
+    <a href="https://open.spotify.com/search/Candles%20Within%20Temptation" target="_blank" class="spotify">Spotify</a>
+    <a href="https://www.deezer.com/search/Candles%20Within%20Temptation" target="_blank" class="deezer">Deezer</a>
+    <a href="https://www.youtube.com/results?search_query=Candles+Within+Temptation" target="_blank" class="youtube">YouTube</a>
+  </div>
+</li>
+      
+</ul> 
+      
     </div>
   </div>
 
