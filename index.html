@@ -99,7 +99,7 @@
 
     @media (max-width: 700px) {
      .album {
-      flex-direction: column;
+     flex-direction: column;
       align-items: center;
       text-align: center;
     }
@@ -110,10 +110,10 @@
        object-fit: cover;
     }
 
-    li {
+    /*li {
        flex-direction: column;
        align-items: flex-start;
-      }
+      }*/
     }
 
 /* ===== VOTAÇÃO ===== */
@@ -141,26 +141,44 @@
   align-items: center;
   width: 100%;
 }
+
+.track-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}    
     
 .track-name {
   font-weight: 500;
 }
 
-.vote-btn {
-  width: 90px;              /* largura fixa = alinhamento perfeito */
-  text-align: center;
-  /*margin-left: auto;  /* empurra o botão para a direita */ */
-  /*padding: 6px 14px;  /* botão maior */ */
-  padding: 3px 10px;
+/*.vote-btn {
+ /* width: 90px;              /* largura fixa = alinhamento perfeito */
+/*  text-align: center;
+  /*margin-left: auto;  /* empurra o botão para a direita */
+  /*padding: 6px 14px;  /* botão maior */
+ /* padding: 3px 10px;
   font-size: 0.85em;
   border-radius: 5px;
   /*background: linear-gradient(135deg, #2b4f7a, #0b1623);*/
+ /* background: linear-gradient(135deg, #b30000, #ff3333);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}*/
+
+.vote-btn {
+  width: 90px;
+  justify-self: end;
+  padding: 3px 10px;
+  font-size: 0.85em;
+  border-radius: 5px;
   background: linear-gradient(135deg, #b30000, #ff3333);
   color: #fff;
   border: none;
   cursor: pointer;
 }
-    
+       
 .vote-btn:hover {
   background: #3b6fa5;
   /*filter: brightness(1.15);*/
