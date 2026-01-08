@@ -216,22 +216,31 @@
   opacity: 1;
 }
 
-.yt-btn {
-  display: inline-block;
-  padding: 2px 6px;
-  font-size: 0.7em;
-  font-weight: 600;
-  border-radius: 4px;
-  background: #ff3b3b;
-  color: #fff;
-  text-decoration: none;
-  line-height: 1;
+..yt-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 28px;
+  height: 28px;
+  margin-left: 6px;
+
+  border-radius: 6px;
+  background: transparent;
+
   opacity: 0.85;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.yt-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .yt-btn:hover {
   opacity: 1;
-  background: #ff0000;
+  transform: scale(1.05);
 }
 
 
