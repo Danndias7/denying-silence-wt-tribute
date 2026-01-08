@@ -1354,13 +1354,33 @@ function gerarHash() {
   return hash;
 }
 
-function vote(musica) {
-  fetch(API_URL, {
+/* 🔥 FUNÇÃO ATUALIZADA */
+async function vote(musica) {
+  const geo = await obterGeo();
+  const hash = gerarHash();
+
+fetch(API_URL, {
     method: "POST",
     mode: "no-cors",
+    headers: {
+      "Content-Type": "application/json"
+    },
     body: JSON.stringify({
       musica: musica,
-      hash: gerarHash()
+      hash: hash,
+      ip: geo.ip,
+      cidade: geo.cidade,
+      pais: geo.pais,
+      userAgent: navigator.userAgent
+    })
+  });
+  
+  //fetch(API_URL, {
+    //method: "POST",
+    //mode: "no-cors",
+    //body: JSON.stringify({
+      //musica: musica,
+      //hash: gerarHash()
     })
   });
 
@@ -1416,6 +1436,29 @@ function filtrarMusicas() {
   </span>
 </div>
 
+
+  <script>
+async function obterGeo() {
+  try {
+    const res = await fetch("https://ipapi.co/json/");
+    const data = await res.json();
+
+    return {
+      ip: data.ip,
+      cidade: data.city,
+      pais: data.country_name
+    };
+  } catch (e) {
+    return {
+      ip: "erro",
+      cidade: "erro",
+      pais: "erro"
+    };
+  }
+}
+</script>
+
+  
   
 </body>
 </html>
