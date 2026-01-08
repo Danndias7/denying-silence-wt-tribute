@@ -251,8 +251,20 @@
 .deezer { color: #EF5466; }
 .youtube { color: #FF3B3B; }
 
-/* ===== BUSCA ===== */
 
+/* ===== RADIO WT ===== */     
+<div class="radio-player">
+  <iframe
+    src="https://www.youtube-nocookie.com/embed/0ZvtKu0XBMg?autoplay=0&controls=1&modestbranding=1&rel=0"
+    title="Within Temptation Radio"
+    allow="autoplay; encrypted-media"
+    loading="lazy">
+  </iframe>
+</div>
+
+
+    
+/* ===== BUSCA ===== */   
 .search-box {
   max-width: 450px;
   margin: 30px auto 20px;
@@ -342,6 +354,20 @@
 .toast-message {
   width: 100%;
   text-align: center;
+}
+
+  .radio-player {
+  max-width: 430px;
+  margin: 15px auto 5px;
+  padding: 0 20px;
+}
+
+.radio-player iframe {
+  width: 100%;
+  height: 70px;          /* altura pequena = foco no áudio */
+  border-radius: 12px;
+  border: none;
+  background: #000;
 }
     
   </style>
