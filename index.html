@@ -128,7 +128,7 @@
   .votes {
     display: none;
 }
- 
+    
 .track {
   padding: 10px 0;
   border-bottom: 1px dotted #2a3b52;
@@ -182,6 +182,22 @@
 .spotify { color: #1DB954; }
 .deezer { color: #EF5466; }
 .youtube { color: #FF3B3B; }
+
+.search-box {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.search-box input {
+  width: 100%;
+  max-width: 400px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #2a3b52;
+  background: #0f1724;
+  color: #fff;
+  font-size: 1em;
+}
     
   </style>
 </head>
@@ -190,9 +206,19 @@
 
 <header>
   <h1>Denying Silence – WT Tribute</h1>
-  <p> nas músicas do Within Temptation que você quer ouvir ao vivo</p>
+  <p> Vote nas músicas do Within Temptation que você quer ouvir ao vivo</p>
 </header>
 
+<!-- ===== PASSO 1: BUSCA ===== -->
+<div class="search-box">
+  <input
+    type="text"
+    id="searchInput"
+    placeholder="Buscar música..."
+    onkeyup="filtrarMusicas()"
+  />
+</div>
+  
 <!-- ÁLBUM -->
 <section class="albums">
 
@@ -1264,6 +1290,26 @@ function vote(musica) {
   // Se chegou até aqui, o POST foi disparado
   alert("🔥 Voto registrado com sucesso!");
 }
+
+<script>
+function filtrarMusicas() {
+  const texto = document
+    .getElementById("searchInput")
+    .value
+    .toLowerCase();
+
+  const tracks = document.querySelectorAll(".track");
+
+  tracks.forEach(track => {
+    const nome = track
+      .querySelector(".track-name")
+      .innerText
+      .toLowerCase();
+
+    track.style.display = nome.includes(texto) ? "block" : "none";
+  });
+}
+ 
 </script>
 
 </body>
