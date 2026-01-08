@@ -237,13 +237,21 @@
     
 .toast {
   position: fixed;
-  bottom: 30px;
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
   background: linear-gradient(135deg, #b30000, #ff3333);
   color: #fff;
-  padding: 14px 22px;
+  padding: 12px 18px;
   border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;       
+  text-align: center;
+
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  
   font-size: 0.95em;
   box-shadow: 0 0 20px rgba(0,0,0,0.6);
   opacity: 0;
@@ -257,7 +265,11 @@
   transform: translateX(-50%) translateY(-10px);
 }    
 
-
+.toast-title,
+.toast-message {
+  width: 100%;
+  text-align: center;
+}
     
   </style>
 </head>
@@ -1391,9 +1403,12 @@ function filtrarMusicas() {
 
  
 <div id="toast" class="toast">
-   <span><strong>Denying Silence<br></strong></span>
-   <span><strong>– WT Tribute<br></strong></span>
-   <span>🔥 Voto registrado com sucesso!🎼</span>
+  <span class="toast-title">
+    <strong>Denying Silence – WT Tribute</strong>
+  </span>
+  <span class="toast-message">
+    🔥 Voto registrado com sucesso! 🎼
+  </span>
 </div>
 
   
