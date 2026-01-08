@@ -1154,40 +1154,34 @@
   const API_URL = "https://script.google.com/macros/s/AKfycbxHKjLS6btTP1rjfBPGWFR1EsZgz3XHg_3rExU7DKJ9fNSUetqJkHIuxp6d8ixJ9PllHQ/exec";
 
   function gerarHash() {
-    let hash = localStorage.getItem("voteHash");
-    if (!hash) {
-      hash = crypto.randomUUID();
-      localStorage.setItem("voteHash", hash);
-    }
-    return hash;
+  let hash = localStorage.getItem("voteHash");
+  if (!hash) {
+    hash = crypto.randomUUID();
+    localStorage.setItem("voteHash", hash);
   }
+  return hash;
+}
 
-  function vote(musica) {
-    fetch(API_URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        musica: musica,
-        hash: gerarHash()
-      })
+function votar(musica) {
+  fetch(API_URL, {
+    method: "POST",
+    mode: "no-cors",   // 🔥 ISSO É O SEGREDO
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      musica: musica,
+      hash: gerarHash()
     })
-    .then(res => res.json())
-    .then(data => {
-      if (data.success) {
-        alert("🔥 Voto registrado com sucesso!");
-      } else {
-        alert("⚠️ " + data.error);
-      }
-    })
-    .catch(err => {
-      console.error(err);
-      alert("❌ Erro ao registrar o voto");
-    });
-  }
+  })
+  .then(() => {
+    alert("🔥 Voto registrado!");
+  })
+  .catch(() => {
+    alert("❌ Erro ao registrar voto");
+  });
+}
 </script>
-
   
 </body>
 </html>
