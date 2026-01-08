@@ -1343,7 +1343,7 @@
 </footer>
 
 <script>
-const API_URL = "https://script.google.com/macros/s/AKfycbyzMJC59KVcRlZ3NSyTKWDAHsFusjFKgeAGovHWToMWuihb9sN_x4gdvCoIRsz_7tatoA/exec";
+const API_URL = "https://script.google.com/macros/s/AKfycbxlVYyEDytU6p7czoUawQNyiMwWYFJOCUgaUwAHdiuuzAYwr3l0tY5G9oEVI8aqU_-HiA/exec";
 
 function gerarHash() {
   let hash = localStorage.getItem("voteHash");
@@ -1361,31 +1361,6 @@ function vote(musica) {
     body: JSON.stringify({
       musica: musica,
       hash: gerarHash()
-    })
-  });
-
-fetch(API_URL, {
-    method: "POST",
-    mode: "no-cors",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      musica: musica,
-      hash: hash,
-      ip: geo.ip,
-      cidade: geo.cidade,
-      pais: geo.pais,
-      userAgent: navigator.userAgent
-    })
-  });
-  
-  //fetch(API_URL, {
-    //method: "POST",
-    //mode: "no-cors",
-    //body: JSON.stringify({
-      //musica: musica,
-      //hash: gerarHash()
     })
   });
 
@@ -1441,29 +1416,6 @@ function filtrarMusicas() {
   </span>
 </div>
 
-
-  <script>
-async function obterGeo() {
-  try {
-    const res = await fetch("https://ipapi.co/json/");
-    const data = await res.json();
-
-    return {
-      ip: data.ip,
-      cidade: data.city,
-      pais: data.country_name
-    };
-  } catch (e) {
-    return {
-      ip: "erro",
-      cidade: "erro",
-      pais: "erro"
-    };
-  }
-}
-</script>
-
-  
   
 </body>
 </html>
