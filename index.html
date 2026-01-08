@@ -1263,16 +1263,20 @@ function vote(musica) {
       hash: gerarHash()
     })
   })
-  .then(response => {
-    if (!response.ok) throw new Error("Erro HTTP");
-    alert("🔥 Voto registrado!");
+  .then(res => res.json())
+  .then(data => {
+    if (data.success) {
+      alert("🔥 Voto registrado!");
+    } else {
+      alert("⚠️ " + data.error);
+    }
   })
   .catch(err => {
     console.error(err);
     alert("❌ Erro ao registrar voto");
   });
 }
-
+</script>
   
 </body>
 </html>
