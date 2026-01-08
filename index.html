@@ -1153,7 +1153,7 @@
 <script>
   const API_URL = "https://script.google.com/macros/s/AKfycbxHKjLS6btTP1rjfBPGWFR1EsZgz3XHg_3rExU7DKJ9fNSUetqJkHIuxp6d8ixJ9PllHQ/exec";
 
-  function gerarHash() {
+function gerarHash() {
   let hash = localStorage.getItem("voteHash");
   if (!hash) {
     hash = crypto.randomUUID();
@@ -1162,10 +1162,10 @@
   return hash;
 }
 
-function votar(musica) {
+function vote(musica) {
   fetch(API_URL, {
     method: "POST",
-    mode: "no-cors",   // 🔥 ISSO É O SEGREDO
+    mode: "no-cors",
     headers: {
       "Content-Type": "application/json"
     },
@@ -1174,14 +1174,11 @@ function votar(musica) {
       hash: gerarHash()
     })
   })
-  .then(() => {
-    alert("🔥 Voto registrado!");
-  })
-  .catch(() => {
-    alert("❌ Erro ao registrar voto");
-  });
+  .then(() => alert("🔥 Voto registrado!"))
+  .catch(() => alert("❌ Erro ao registrar voto"));
 }
 </script>
+
   
 </body>
 </html>
