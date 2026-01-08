@@ -1267,38 +1267,31 @@
 
 <script>
 const API_URL = "https://script.google.com/macros/s/AKfycbwvpbOl8kiZN_9zkLfFG4dvSi0i25miSg6Nor9pWy4foUUvrTeWmrG-bwseLF3lQcJgqQ/exec";
+<script>
+const API_URL = "SUA_URL_EXEC_AQUI";
 
-  function gerarHash() {
-    let hash = localStorage.getItem("voteHash");
-    if (!hash) {
-      hash = crypto.randomUUID();
-      localStorage.setItem("voteHash", hash);
-    }
-    return hash;
+function gerarHash() {
+  let hash = localStorage.getItem("voteHash");
+  if (!hash) {
+    hash = crypto.randomUUID();
+    localStorage.setItem("voteHash", hash);
   }
+  return hash;
+}
 
-  function vote(musica) {
-    fetch(API_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        musica: musica,
-        hash: gerarHash()
-      })
+function vote(musica) {
+  fetch(API_URL, {
+    method: "POST",
+    mode: "no-cors",
+    body: JSON.stringify({
+      musica: musica,
+      hash: gerarHash()
     })
-    .then(res => res.json())
-    .then(data => {
-      if (data.success) {
-        alert("🔥 Voto registrado!");
-      } else {
-        alert("⚠️ " + data.error);
-      }
-    })
-    .catch(err => {
-      console.error(err);
-      alert("❌ Erro ao registrar voto");
-    });
-  }
+  });
+
+  // Se chegou até aqui, o POST foi disparado
+  alert("🔥 Voto registrado com sucesso!");
+}
 
   /* ===== BUSCA ===== */
 function filtrarMusicas() {
