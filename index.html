@@ -119,9 +119,22 @@
       text-decoration: underline;
     }
 
-    footer .instagram {
-      margin-top: 8px;
-    }
+    footer .instagram a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px; /* espaço entre ícone e texto */
+}
+
+footer .instagram-icon {
+  width: 18px;
+  height: 18px;
+  filter: brightness(0) invert(1); /* deixa branco */
+  transition: opacity 0.3s ease;
+}
+
+footer .instagram a:hover .instagram-icon {
+  opacity: 0.85;
+}
     
    @media (max-width: 700px) {
   .album {
@@ -1371,12 +1384,16 @@
 
 <footer class="site-footer">
   <p>© 2026 – Denying Silence – WT Tribute</p>
+
   <p class="disclaimer">
     Projeto de fãs · Não afiliado à banda Within Temptation
   </p>
 
   <p class="instagram">
-    📸 <a href="https://instagram.com/wttributebr" target="_blank">@wttributebr</a>
+    <a href="https://instagram.com/wttributebr" target="_blank" rel="noopener">
+      <img src="instagram_l.png" alt="Instagram" class="instagram-icon">
+      @wttributebr
+    </a>
   </p>
 </footer>
 
