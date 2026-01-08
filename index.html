@@ -1624,7 +1624,12 @@ document.querySelectorAll(".track").forEach(track => {
     yt.target = "_blank";
     yt.rel = "noopener";
     yt.className = "yt-btn";
-    yt.textContent = "YT";
+
+    const img = document.createElement("img");
+    img.src = "YT.png";
+    img.alt = "YouTube";
+
+    yt.appendChild(img);
 
     track.querySelector(".track-left").appendChild(yt);
   }
