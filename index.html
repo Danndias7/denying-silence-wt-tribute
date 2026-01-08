@@ -92,11 +92,26 @@
 
     footer {
       text-align: center;
-      padding: 30px 10px;
-      font-size: 0.8em;
-      color: #8aa0b8;
+      padding: 25px 15px;
+      font-size: 0.85rem;
+      color: #bdbdbd;
     }
 
+    footer a {
+      color: #e0e0e0; /* cinza bem claro */
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    footer a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    footer .instagram {
+      margin-top: 8px;
+    }
+    
    @media (max-width: 700px) {
   .album {
     width: 100%;
@@ -281,11 +296,15 @@
 
 <body>
 
-<header>
-  <h1>Vote no Próximo Setlist</h1>
-  <p> Qual música você gostaria que entrasse para o nosso setlist?</p>
-  <p>Vote nas músicas do Within Temptation que você quer ouvir ao vivo</p>
+<header class="site-header">
+  <img src="wtlogo.png" alt="WT Tribute Logo" class="site-logo">
+
+  <div class="header-text">
+    <h1>Vote no Próximo Setlist</h1>
+    <p>Ajude a escolher as músicas do próximo show</p>
+  </div>
 </header>
+
 
 <!-- ===== PASSO 1: BUSCA ===== -->
 <div class="search-box">
@@ -1338,12 +1357,15 @@
 
 </section>
 
-<footer>
-  © 2026 – Denying Silence – WT Tribute<br>
-  Projeto de fãs • Não afiliado à banda Within Temptation<br>
-  <a href="https://instagram.com/wttributebr" target="_blank" class="instagram">
-    📸 @wttributebr
-  </a>
+<footer class="site-footer">
+  <p>© 2026 – Denying Silence – WT Tribute</p>
+  <p class="disclaimer">
+    Projeto de fãs · Não afiliado à banda Within Temptation
+  </p>
+
+  <p class="instagram">
+    📸 <a href="https://instagram.com/wttributebr" target="_blank">@wttributebr</a>
+  </p>
 </footer>
 
 <script>
