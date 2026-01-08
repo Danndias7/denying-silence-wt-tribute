@@ -1292,36 +1292,6 @@ function vote(musica) {
   // Se chegou até aqui, o POST foi disparado
   alert("🔥 Voto registrado com sucesso!");
 }
-
-  /* ===== BUSCA ===== */
-function filtrarMusicas() {
-  const termo = document
-    .getElementById("searchInput")
-    .value
-    .toLowerCase();
-
-  const albuns = document.querySelectorAll(".album");
-
-  albuns.forEach(album => {
-    const tracks = album.querySelectorAll(".track");
-    let albumTemResultado = false;
-
-    tracks.forEach(track => {
-      const nome = track
-        .querySelector(".track-name")
-        .innerText
-        .toLowerCase();
-
-      const match = nome.includes(termo);
-      track.style.display = match ? "block" : "none";
-
-      if (match) albumTemResultado = true;
-    });
-
-    /* esconde o álbum inteiro se não houver matches */
-    album.style.display = albumTemResultado ? "flex" : "none";
-  });
-}
 </script>
   
 </body>
