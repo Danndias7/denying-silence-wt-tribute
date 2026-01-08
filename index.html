@@ -1301,13 +1301,17 @@ const API_URL = "https://script.google.com/macros/s/AKfycbwvpbOl8kiZN_9zkLfFG4dv
   }
 
   /* ===== BUSCA ===== */
-  function filtrarMusicas() {
-    const termo = document
-      .getElementById("searchInput")
-      .value
-      .toLowerCase();
+function filtrarMusicas() {
+  const termo = document
+    .getElementById("searchInput")
+    .value
+    .toLowerCase();
 
-    const tracks = document.querySelectorAll(".track");
+  const albuns = document.querySelectorAll(".album");
+
+  albuns.forEach(album => {
+    const tracks = album.querySelectorAll(".track");
+    let albumTemResultado = false;
 
     tracks.forEach(track => {
       const nome = track
@@ -1315,9 +1319,16 @@ const API_URL = "https://script.google.com/macros/s/AKfycbwvpbOl8kiZN_9zkLfFG4dv
         .innerText
         .toLowerCase();
 
-      track.style.display = nome.includes(termo) ? "block" : "none";
+      const match = nome.includes(termo);
+      track.style.display = match ? "block" : "none";
+
+      if (match) albumTemResultado = true;
     });
-  }
+
+    /* esconde o álbum inteiro se não houver matches */
+    album.style.display = albumTemResultado ? "flex" : "none";
+  });
+}
 </script>
   
 </body>
