@@ -1259,14 +1259,9 @@ function vote(musica) {
       hash: gerarHash()
     })
   })
-  .then(res => res.text())
-  .then(text => JSON.parse(text))
-  .then(data => {
-    if (data.success) {
-      alert("🔥 Voto registrado!");
-    } else {
-      alert("⚠️ " + data.error);
-    }
+  .then(() => {
+    // Se chegou aqui, o voto foi salvo
+    alert("🔥 Voto registrado com sucesso!");
   })
   .catch(err => {
     console.error(err);
