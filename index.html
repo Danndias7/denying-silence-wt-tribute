@@ -1264,6 +1264,19 @@ function vote(musica) {
   // Se chegou até aqui, o POST foi disparado
   alert("🔥 Voto registrado com sucesso!");
 }
+
+  const searchInput = document.getElementById("search");
+
+  searchInput.addEventListener("keyup", function () {
+    const termo = this.value.toLowerCase();
+    const botoes = document.querySelectorAll("#lista-musicas button");
+
+    botoes.forEach(btn => {
+      const texto = btn.innerText.toLowerCase();
+      btn.style.display = texto.includes(termo) ? "block" : "none";
+    });
+  });
+  
 </script>
 
 </body>
