@@ -233,6 +233,31 @@
   }
 }
 
+
+    
+.toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #b30000, #ff3333);
+  color: #fff;
+  padding: 14px 22px;
+  border-radius: 10px;
+  font-size: 0.95em;
+  box-shadow: 0 0 20px rgba(0,0,0,0.6);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  z-index: 9999;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-10px);
+}    
+
+
     
   </style>
 </head>
@@ -1322,8 +1347,16 @@ function vote(musica) {
     })
   });
 
-  // Se chegou até aqui, o POST foi disparado
-  alert("🔥 Voto registrado com sucesso!");
+   mostrarToast(); // 👈 no lugar do alert
+}
+
+function mostrarToast() {
+  const toast = document.getElementById("toast");
+  toast.classList.add("show");
+
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, 3000);
 }
 
 function filtrarMusicas() {
@@ -1356,5 +1389,11 @@ function filtrarMusicas() {
 }
 </script>
 
+ 
+<div id="toast" class="toast">
+  🔥 Voto registrado com sucesso!
+</div>
+
+  
 </body>
 </html>
