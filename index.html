@@ -1268,49 +1268,57 @@
 <script>
 const API_URL = "https://script.google.com/macros/s/AKfycbwvpbOl8kiZN_9zkLfFG4dvSi0i25miSg6Nor9pWy4foUUvrTeWmrG-bwseLF3lQcJgqQ/exec";
 
-function gerarHash() {
-  let hash = localStorage.getItem("voteHash");
-  if (!hash) {
-    hash = crypto.randomUUID();
-    localStorage.setItem("voteHash", hash);
+  function gerarHash() {
+    let hash = localStorage.getItem("voteHash");
+    if (!hash) {
+      hash = crypto.randomUUID();
+      localStorage.setItem("voteHash", hash);
+    }
+    return hash;
   }
-  return hash;
-}
 
-function vote(musica) {
-  fetch(API_URL, {
-    method: "POST",
-    mode: "no-cors",
-    body: JSON.stringify({
-      musica: musica,
-      hash: gerarHash()
+  function vote(musica) {
+    fetch(API_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        musica: musica,
+        hash: gerarHash()
+      })
     })
-  });
+    .then(res => res.json())
+    .then(data => {
+      if (data.success) {
+        alert("🔥 Voto registrado!");
+      } else {
+        alert("⚠️ " + data.error);
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      alert("❌ Erro ao registrar voto");
+    });
+  }
 
-  // Se chegou até aqui, o POST foi disparado
-  alert("🔥 Voto registrado com sucesso!");
-}
-
-<script>
-function filtrarMusicas() {
-  const texto = document
-    .getElementById("searchInput")
-    .value
-    .toLowerCase();
-
-  const tracks = document.querySelectorAll(".track");
-
-  tracks.forEach(track => {
-    const nome = track
-      .querySelector(".track-name")
-      .innerText
+  /* ===== BUSCA ===== */
+  function filtrarMusicas() {
+    const termo = document
+      .getElementById("searchInput")
+      .value
       .toLowerCase();
 
-    track.style.display = nome.includes(texto) ? "block" : "none";
-  });
-}
- 
-</script>
+    const tracks = document.querySelectorAll(".track");
 
+    tracks.forEach(track => {
+      const nome = track
+        .querySelector(".track-name")
+        .innerText
+        .toLowerCase();
+
+      track.style.display = nome.includes(termo) ? "block" : "none";
+    });
+  }
+</script>
+  
 </body>
 </html>
