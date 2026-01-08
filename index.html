@@ -1255,7 +1255,6 @@ function gerarHash() {
 function vote(musica) {
   fetch(API_URL, {
     method: "POST",
-    mode: "no-cors",
     headers: {
       "Content-Type": "application/json"
     },
@@ -1264,10 +1263,15 @@ function vote(musica) {
       hash: gerarHash()
     })
   })
-  .then(() => alert("🔥 Voto registrado!"))
-  .catch(() => alert("❌ Erro ao registrar voto"));
+  .then(response => {
+    if (!response.ok) throw new Error("Erro HTTP");
+    alert("🔥 Voto registrado!");
+  })
+  .catch(err => {
+    console.error(err);
+    alert("❌ Erro ao registrar voto");
+  });
 }
-</script>
 
   
 </body>
