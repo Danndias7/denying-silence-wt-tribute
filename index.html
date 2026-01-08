@@ -124,20 +124,20 @@
     }
 
     footer .instagram a {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px; /* espaço entre ícone e texto */
-}
+      display: inline-flex;
+      align-items: center;
+      gap: 6px; /* espaço entre ícone e texto */
+    }
 
-footer .instagram-icon {
-  width: 20px;
-  height: 20px;
-  transition: opacity 0.3s ease;
-}
+    footer .instagram-icon {
+      width: 20px;
+      height: 20px;
+      transition: opacity 0.3s ease;
+    }
 
-footer .instagram a:hover .instagram-icon {
-  opacity: 0.85;
-}
+    footer .instagram a:hover .instagram-icon {
+      opacity: 0.85;
+    }
     
    @media (max-width: 700px) {
   .album {
@@ -145,6 +145,12 @@ footer .instagram a:hover .instagram-icon {
     flex-direction: column;
     align-items: center;
     text-align: center;
+  }
+
+  @media (max-width: 700px) {
+  .vote-btn {
+    padding: 4px 8px;
+    font-size: 0.75em;
   }
 
   .album img {
@@ -178,7 +184,7 @@ footer .instagram a:hover .instagram-icon {
 
 .track-top {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
   width: 100%;
 }
@@ -191,6 +197,7 @@ footer .instagram a:hover .instagram-icon {
 
 .vote-btn {
   min-width: 60px;
+  max-width: 100%;
   padding: 3px 6px;
   font-size: 0.8em;
   border-radius: 5px;
@@ -200,6 +207,7 @@ footer .instagram a:hover .instagram-icon {
   cursor: pointer;
   justify-self: end;
   white-space: nowrap;
+  box-sizing: border-box;
 }
     
     
