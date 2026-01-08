@@ -1239,7 +1239,6 @@
   Projeto de fãs • Não afiliado à banda Within Temptation
 </footer>
 
-
 <script>
 const API_URL = "https://script.google.com/macros/s/AKfycbwvpbOl8kiZN_9zkLfFG4dvSi0i25miSg6Nor9pWy4foUUvrTeWmrG-bwseLF3lQcJgqQ/exec";
 
@@ -1253,28 +1252,26 @@ function gerarHash() {
 }
 
 function vote(musica) {
- fetch(API_URL, {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({
-    musica: musica,
-    hash: gerarHash()
+  fetch(API_URL, {
+    method: "POST",
+    body: JSON.stringify({
+      musica: musica,
+      hash: gerarHash()
+    })
   })
-})
-.then(res => res.text())
-.then(text => JSON.parse(text))
-.then(data => {
-  if (data.success) {
-    alert("🔥 Voto registrado!");
-  } else {
-    alert("⚠️ " + data.error);
-  }
-})
-.catch(err => {
-  console.error(err);
-  alert("❌ Erro ao registrar voto");
-});
-
+  .then(res => res.text())
+  .then(text => JSON.parse(text))
+  .then(data => {
+    if (data.success) {
+      alert("🔥 Voto registrado!");
+    } else {
+      alert("⚠️ " + data.error);
+    }
+  })
+  .catch(err => {
+    console.error(err);
+    alert("❌ Erro ao registrar voto");
+  });
 }
 </script>
   
