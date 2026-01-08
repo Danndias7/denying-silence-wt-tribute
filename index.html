@@ -13,23 +13,34 @@
       color: #eaeaea;
     }
 
-    header {
-      text-align: center;
-      padding: 40px 20px;
-      background: linear-gradient(180deg, #0d1622, #05070c);
-      border-bottom: 1px solid #1f2e40;
+    .site-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 12px;
+      max-width: 1100px;
+      margin: 0 auto 10px;
     }
 
-    header h1 {
-      font-size: 2.2em;
-      margin: 0;
-      letter-spacing: 1px;
+    .site-logo {
+      width: 28px;   /* pequeno */
+      height: auto;
+      flex-shrink: 0;
     }
 
-    header p {
-      margin-top: 10px;
-      color: #9fb3c8;
-    }    
+    .header-text {
+      line-height: 1.2;
+    }
+
+    .header-text .title {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .header-text .subtitle {
+      font-size: 0.85rem;
+      color: #bdbdbd;
+    }
 
     .album {
       max-width: 900px;
@@ -300,10 +311,11 @@
   <img src="wtlogo.png" alt="WT Tribute Logo" class="site-logo">
 
   <div class="header-text">
-    <h1>Vote no Próximo Setlist</h1>
-    <p>Ajude a escolher as músicas do próximo show</p>
+    <div class="title">Vote no Próximo Setlist</div>
+    <div class="subtitle">Ajude a escolher as músicas do próximo show</div>
   </div>
 </header>
+
 
 
 <!-- ===== PASSO 1: BUSCA ===== -->
