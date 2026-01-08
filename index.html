@@ -1343,7 +1343,7 @@
 </footer>
 
 <script>
-const API_URL = "https://script.google.com/macros/s/AKfycbzerwqw1LJfrCgPnT6uX_H_abfVcYCVdQ6oS_854jbY7nqFoxfCueiANTI2zh0Hx1LSGw/exec";
+const API_URL = "https://script.google.com/macros/s/AKfycbyzMJC59KVcRlZ3NSyTKWDAHsFusjFKgeAGovHWToMWuihb9sN_x4gdvCoIRsz_7tatoA/exec";
 
 function gerarHash() {
   let hash = localStorage.getItem("voteHash");
@@ -1354,10 +1354,15 @@ function gerarHash() {
   return hash;
 }
 
-/* 🔥 FUNÇÃO ATUALIZADA */
-async function vote(musica) {
-  const geo = await obterGeo();
-  const hash = gerarHash();
+function vote(musica) {
+  fetch(API_URL, {
+    method: "POST",
+    mode: "no-cors",
+    body: JSON.stringify({
+      musica: musica,
+      hash: gerarHash()
+    })
+  });
 
 fetch(API_URL, {
     method: "POST",
