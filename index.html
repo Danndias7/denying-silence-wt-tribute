@@ -128,7 +128,7 @@
   .votes {
     display: none;
 }
-    
+ 
 .track {
   padding: 10px 0;
   border-bottom: 1px dotted #2a3b52;
@@ -182,22 +182,6 @@
 .spotify { color: #1DB954; }
 .deezer { color: #EF5466; }
 .youtube { color: #FF3B3B; }
-
-.search-box {
-  margin: 20px 0;
-  text-align: center;
-}
-
-.search-box input {
-  width: 100%;
-  max-width: 400px;
-  padding: 8px 12px;
-  border-radius: 6px;
-  border: 1px solid #2a3b52;
-  background: #0f1724;
-  color: #fff;
-  font-size: 1em;
-}
     
   </style>
 </head>
@@ -209,16 +193,6 @@
   <p> Vote nas músicas do Within Temptation que você quer ouvir ao vivo</p>
 </header>
 
-<!-- ===== PASSO 1: BUSCA ===== -->
-<div class="search-box">
-  <input
-    type="text"
-    id="searchInput"
-    placeholder="Buscar música..."
-    onkeyup="filtrarMusicas()"
-  />
-</div>
-  
 <!-- ÁLBUM -->
 <section class="albums">
 
@@ -1267,8 +1241,6 @@
 
 <script>
 const API_URL = "https://script.google.com/macros/s/AKfycbwvpbOl8kiZN_9zkLfFG4dvSi0i25miSg6Nor9pWy4foUUvrTeWmrG-bwseLF3lQcJgqQ/exec";
-<script>
-const API_URL = "SUA_URL_EXEC_AQUI";
 
 function gerarHash() {
   let hash = localStorage.getItem("voteHash");
@@ -1293,6 +1265,6 @@ function vote(musica) {
   alert("🔥 Voto registrado com sucesso!");
 }
 </script>
-  
+
 </body>
 </html>
