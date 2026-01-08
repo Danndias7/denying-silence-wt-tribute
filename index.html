@@ -1241,7 +1241,7 @@
 
 
 <script>
-  const API_URL = "https://script.google.com/macros/s/AKfycbyBi481D-K1U-wgxJpnLe6JduQ38ZJC7-Jp2HoHqK7GQYiokWG9Sr04f4ArVKfaCSlrrQ/exec";
+const API_URL = "https://script.google.com/macros/s/AKfycbyBi481D-K1U-wgxJpnLe6JduQ38ZJC7-Jp2HoHqK7GQYiokWG9Sr04f4ArVKfaCSlrrQ/exec";
 
 function gerarHash() {
   let hash = localStorage.getItem("voteHash");
@@ -1255,6 +1255,7 @@ function gerarHash() {
 function vote(musica) {
   fetch(API_URL, {
     method: "POST",
+    mode: "cors",
     headers: {
       "Content-Type": "application/json"
     },
@@ -1263,7 +1264,10 @@ function vote(musica) {
       hash: gerarHash()
     })
   })
-  .then(res => res.json())
+  .then(res => {
+    if (!res.ok) throw new Error("Resposta não OK");
+    return res.json();
+  })
   .then(data => {
     if (data.success) {
       alert("🔥 Voto registrado!");
@@ -1272,7 +1276,7 @@ function vote(musica) {
     }
   })
   .catch(err => {
-    console.error(err);
+    console.error("Erro fetch:", err);
     alert("❌ Erro ao registrar voto");
   });
 }
