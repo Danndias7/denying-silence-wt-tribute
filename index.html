@@ -193,12 +193,15 @@
   <p> Vote nas músicas do Within Temptation que você quer ouvir ao vivo</p>
 </header>
 
-<input
-  type="text"
-  id="search"
-  placeholder="Buscar música..."
-  style="width: 100%; padding: 10px; margin-bottom: 15px;"
->
+<!-- ===== PASSO 1: BUSCA ===== -->
+<div class="search-box">
+  <input
+    type="text"
+    id="searchInput"
+    placeholder="Buscar música..."
+    onkeyup="filtrarMusicas()"
+  />
+</div>
   
 <!-- ÁLBUM -->
 <section class="albums">
