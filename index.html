@@ -5,13 +5,20 @@
   <title>Vote no Novo Setlist</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: radial-gradient(circle at top, #1b2a3a, #05070c);
-      color: #eaeaea;
+      font-family: 'Inter', Arial, sans-serif;
+      background: radial-gradient(circle at top, #1a2230, #05070c);
+      color: #e6e6e6;
     }
+
 
     .site-header {
       display: flex;
@@ -33,13 +40,15 @@
     }
 
     .header-text .title {
-      font-size: 1.5rem;
-      font-weight: 600;
+      font-family: 'Cinzel', serif;
+      font-size: 1.7rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
     }
 
     .header-text .subtitle {
-      font-size: 0.8rem;
-      color: #bdbdbd;
+      font-size: 0.85rem;
+      color: #9fb3c8;
     }
 
     .album {
@@ -60,13 +69,13 @@
       background-color: #0000;
     }
 
-    .album-content {
-      flex: 1;
-    }
-
-    .album-content h2 {
-      margin: 0;
-      color: #8fbce6;
+    .album-content h2,
+    .album-info h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: #d4b26a;
+      margin-bottom: 8px;
     }
 
     ul {
@@ -85,9 +94,10 @@
     }
 
     .played {
-      font-size: 0.7em;   /* menor */
+      font-size: 0.7em;
       color: #6ddf9c;
-      white-space: nowrap;
+      font-style: italic;
+      opacity: 0.9;
     }
 
     .links a {
@@ -186,17 +196,23 @@
 }
 
 .vote-btn {
-  min-width: 50px;
-  padding: 3px 6px;
-  font-size: 0.8em;
-  border-radius: 5px;
-  background: linear-gradient(135deg, #b30000, #ff3333);
+  min-width: 60px;
+  padding: 5px 10px;
+  font-size: 0.75em;
+  font-weight: 600;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #8b0000, #ff2f2f);
   color: #fff;
   border: none;
   cursor: pointer;
-  justify-self: end;
-  white-space: nowrap;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
+
+.vote-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(255, 50, 50, 0.4);
+}
+
     
     
 .track-links {
